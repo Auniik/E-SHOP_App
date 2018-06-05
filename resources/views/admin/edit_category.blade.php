@@ -7,13 +7,13 @@
 		<a href="{{URL::to('/dashboard')}}">Home</a> 
 		<i class="icon-angle-right"></i>
 	</li>
-	<li><a href="{{URL::to('/add-category')}}">Add Category</a></li>
+	<li><a href="#">Edit Category</a></li>
 </ul>
 
 {{-- <div class="row-fluid sortable"> --}}
 	<div class="box span12">
 		<div class="box-header" data-original-title>
-			<h2><i class="halflings-icon edit"></i><span class="break"></span>Add Category</h2>
+			<h2><i class="halflings-icon edit"></i><span class="break"></span>Edit Category</h2>
 		</div>
 	<div class="box-content">
 		<form class="form-horizontal" action="{{URL::to('/update-category/'.$edit_category_info->category_id)}}" method="post">
@@ -32,8 +32,7 @@
 			  </div>
 			</div>
 			<div class="form-actions">
-			  <button type="submit" class="btn btn-primary">Save changes</button>
-			  <button type="reset" class="btn">Cancel</button>
+			  <button type="submit" class="btn btn-primary">Update changes</button>
 			</div>
 		  </fieldset>
 		</form>   
