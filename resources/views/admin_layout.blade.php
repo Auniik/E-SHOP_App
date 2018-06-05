@@ -6,7 +6,7 @@
 
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Metro Admin Template - Metro UI Style Bootstrap Admin Template</title>
+	<title>@yield('title')</title>
 	<meta name="description" content="Metro Admin Template.">
 	<meta name="author" content="Łukasz Holeczek">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -54,7 +54,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="index.html"><span>Metro</span></a>
+				<a class="brand" href="index.html"><span>E-Shop Admin Panel</span></a>
 
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
@@ -337,8 +337,8 @@
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li><a href="{{URL::to('/dashboard')}}"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>
-						<li><a href="#"><i class="icon-envelope"></i><span class="hidden-tablet"> All Categories</span></a></li>
-						<li><a href="#"><i class="icon-tasks"></i><span class="hidden-tablet"> Add Category</span></a></li>
+						<li><a href="{{URL::to('/all-category')}}"><i class="icon-envelope"></i><span class="hidden-tablet"> All Categories</span></a></li>
+						<li><a href="{{URL::to('/add-category')}}"><i class="icon-tasks"></i><span class="hidden-tablet"> Add Category</span></a></li>
 						<li><a href="#"><i class="icon-eye-open"></i><span class="hidden-tablet"> All Brands</span></a></li>
 						<li><a href="#"><i class="icon-dashboard"></i><span class="hidden-tablet"> Add Brands</span></a></li>
 						<li>
