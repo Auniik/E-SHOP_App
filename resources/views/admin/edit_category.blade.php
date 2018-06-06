@@ -16,19 +16,19 @@
 			<h2><i class="halflings-icon edit"></i><span class="break"></span>Edit Category</h2>
 		</div>
 	<div class="box-content">
-		<form class="form-horizontal" action="{{URL::to('/update-category/'.$edit_category_info->category_id)}}" method="post">
+		<form class="form-horizontal" action="{{URL::to('/update-category/'.$category_info->category_id)}}" method="post">
 			{{csrf_field()}}
 		  <fieldset>
 			<div class="control-group">
 			  <label class="control-label" for="typeahead">Category Name </label>
 			  <div class="controls">
-				<input type="text" value="{{$edit_category_info->category_name}}" class="span6 typeahead" id="typeahead" name="category_name" required="">
+				<input type="text" value="{{$category_info->category_name}}" class="span6 typeahead" id="typeahead" name="category_name" required="">
 			  </div>
 			</div>        
 			<div class="control-group hidden-phone">
 			  <label class="control-label" for="textarea2">Category Description</label>
 			  <div class="controls">
-				<textarea class="cleditor" id="textarea2" name="category_description" rows="3" required>{{$edit_category_info->category_description}}</textarea>
+				<textarea class="cleditor" id="textarea2" name="category_description" rows="3" required>{{$category_info->category_description}}</textarea>
 			  </div>
 			</div>
 			<div class="form-actions">

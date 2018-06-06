@@ -1,6 +1,5 @@
 @extends('admin_layout')
-@section('title', 'All Category')
-
+@section('title', 'Add Manufacture')
 @section('admin_content')
 <ul class="breadcrumb">
 	<li>
@@ -8,11 +7,11 @@
 		<a href="{{URL::to('/dashboard')}}">Home</a> 
 		<i class="icon-angle-right"></i>
 	</li>
-	<li><a href="{{URL::to('/all-category')}}">All Category</a></li>
+	<li><a href="{{URL::to('/all-manufacture')}}">All Manufacture</a></li>
 </ul>
 <div class="box span12">
 	<div class="box-header" data-original-title>
-		<h2><i class="halflings-icon user"></i><span class="break"></span>All Categories</h2>
+		<h2><i class="halflings-icon user"></i><span class="break"></span>All Manufacture</h2>
 	</div>
 	<div class="box-content">
 		<?php
@@ -34,9 +33,9 @@
 		<table class="table table-striped table-bordered bootstrap-datatable datatable">
 		  <thead>
 			  <tr>
-				  <th>Category ID</th>
-				  <th>Category Name</th>
-				  <th>Category Description</th>
+				  <th>Manufacture ID</th>
+				  <th>Manufacture Name</th>
+				  <th>Manufacture Description</th>
 				  <th>Publication Status</th>
 				  <th>Actions</th>
 			  </tr>
@@ -45,12 +44,12 @@
 		  	<?php
 		  		$sl=0;
 		  	?>
-		  	@foreach($all_category_info as $v_category)
+		  	@foreach($all_manufacture_info as $v_manufacture)
 			<tr>
 				<td>{{$sl=$sl+1}}</td>
-				<td class="center">{{$v_category->category_name}}</td>
-				<td class="center">{{$v_category->category_description}}</td>
-				@if($v_category->publication_status==1)
+				<td class="center">{{$v_manufacture->manufacture_name}}</td>
+				<td class="center">{{$v_manufacture->manufacture_description}}</td>
+				@if($v_manufacture->publication_status==1)
 				<td class="center">
 					<span class="label label-success">Active</span>
 				</td>
@@ -62,19 +61,19 @@
 
 
 				<td class="center">
-					@if($v_category->publication_status==1)
-					<a class="btn btn-default" href="{{URL::to('/inactive-category/'.$v_category->category_id)}}">
+					@if($v_manufacture->publication_status==1)
+					<a class="btn btn-default" href="{{URL::to('/inactive-manufacture/'.$v_manufacture->manufacture_id)}}">
 						<i class="halflings-icon white thumbs-down"></i>  
 					</a>
 					@else
-					<a class="btn btn-success" href="{{URL::to('/active-category/'.$v_category->category_id)}}">
+					<a class="btn btn-success" href="{{URL::to('/active-manufacture/'.$v_manufacture->manufacture_id)}}">
 						<i class="halflings-icon white thumbs-up"></i>  
 					</a>
 					@endif
-					<a class="btn btn-info" href="{{URL::to('/edit-category/'.$v_category->category_id)}}">
+					<a class="btn btn-info" href="{{URL::to('/edit-manufacture/'.$v_manufacture->manufacture_id)}}">
 						<i class="halflings-icon white edit"></i>  
 					</a>
-					<a class="btn btn-danger" id="delete" href="{{URL::to('/delete-category/'.$v_category->category_id)}}">
+					<a class="btn btn-danger" id="delete" href="{{URL::to('/delete-manufacture/'.$v_manufacture->manufacture_id)}}">
 						<i class="halflings-icon white trash"></i> 
 					</a>
 				</td>

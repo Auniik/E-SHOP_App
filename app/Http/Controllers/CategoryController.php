@@ -55,12 +55,13 @@ class CategoryController extends Controller
 
     //Category Edit
     public function edit_category($category_id){
-    	$edit_category_info = DB::table('tbl_category')
+    	$category_info = DB::table('tbl_category')
     		->where('category_id',$category_id)
     		->first();
     	return view('admin.edit_category')
-    		->with('edit_category_info', $edit_category_info);
+    		->with('category_info', $category_info);
     }
+    
     //category Update
     public function update_category(Request $request, $category_id){
     	$data=array();
