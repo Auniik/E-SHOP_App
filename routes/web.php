@@ -56,4 +56,4 @@ Route::get('/delete-manufacture/{manufacture_id}','ManufactureController@delete_
 
 //Product Controller...........................................................
 Route::get('/add-product','ProductController@index');
-Route::get('/save-product','ProductController@save_product');
+Route::post('/save-product','ProductController@save_product');

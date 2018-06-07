@@ -15,7 +15,19 @@
 			<h2><i class="halflings-icon edit"></i><span class="break"></span>Add Product</h2>
 		</div>
 		<div class="box-content">
-			<form class="form-horizontal">
+			<div>
+				<?php
+					$message=Session::get('message');
+					if ($message) {
+						echo "<div class='alert alert-success'>
+								<button type='button' class='close' data-dismiss='alert'>×</button>
+								<strong>$message </strong> </div>";
+						Session::put('message',null);
+					}
+				?>
+			</div>
+			<form class="form-horizontal" action="{{URL::to('/save-product')}}" method="post" enctype="multipart/form-data">
+				{{ csrf_field() }}
 				<fieldset>
 				  <div class="control-group">
 					<label class="control-label" for="focusedInput">Product Name</label>
@@ -32,7 +44,7 @@
 				  <div class="control-group">
 					<label class="control-label" for="selectError2">Category</label>
 					<div class="controls">
-					  <select id="selectError2" data-rel="chosen" name="category">
+					  <select id="selectError2" data-rel="chosen" name="category_id">
 					  	  <option value="0">-----SELECT------</option>
 					  	<?php
 					  		$category_info=DB::table('tbl_category')
@@ -41,10 +53,10 @@
 					  		foreach ($category_info as $v_category) { 
 					  	?>		
 
-					  			<option>{{$v_category->category_name}}</option>
+					  			<option value="{{$v_category->category_id}}">{{$v_category->category_name}}</option>
 					  	<?php
 					  		}
-					  	?>
+					  	?> 
 						
 						
 					  </select>
@@ -53,14 +65,14 @@
 				  <div class="control-group">
 					<label class="control-label" for="selectError">Manufacture</label>
 					<div class="controls">
-					  <select id="selectError" data-rel="chosen" name="manufacture">
-						<option>-----SELECT------</option>
+					  <select id="selectError" data-rel="chosen" name="manufacture_id">
+						<option value="0">-----SELECT------</option>
 						<?php
 							$manufacture_info=DB::table('tbl_manufacture')
 												->where(['publication_status'=>1])
 												->get();
 							foreach ($manufacture_info as $v_manufacture) { ?>
-								<option>{{$v_manufacture->manufacture_name}}</option>
+								<option value="{{$v_manufacture->manufacture_id}}">{{$v_manufacture->manufacture_name}}</option>
 						<?php
 							}
 						?>
@@ -99,8 +111,16 @@
 					  <input class="input-xlarge focused" id="focusedInput4" type="text" name="product_color" required="">
 					</div>
 				  </div>
+				  <div class="control-group">
+					<label class="control-label" for="pubs">Publication Status</label>
+					<div class="controls">
+					  <label class="checkbox inline">
+						 <input type="checkbox" id="pubs" name="publication_status" value="1">.
+					  </label>
+				    </div>
+				  </div>
 				  <div class="form-actions">
-					<button type="submit" class="btn btn-primary">Save changes</button>
+					<button type="submit" class="btn btn-primary">Add Product</button>
 					<button type="reset" class="btn">Cancel</button>
 				  </div>
 				</fieldset>

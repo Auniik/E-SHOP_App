@@ -50,7 +50,7 @@
 		    </div>
 		</div>
 		<div class="form-actions">
-		  <button type="submit" class="btn btn-primary">Save changes</button>
+		  <button type="submit" class="btn btn-primary">Add Manufacture</button>
 		</div>
 	  </fieldset>
 	</form>   

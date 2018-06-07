@@ -52,7 +52,7 @@
 			    </div>
 			</div>
 			<div class="form-actions">
-			  <button type="submit" class="btn btn-primary">Save changes</button>
+			  <button type="submit" class="btn btn-primary">Add Category</button>
 			  <button type="reset" class="btn">Cancel</button>
 			</div>
 		  </fieldset>
