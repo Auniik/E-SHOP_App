@@ -10,6 +10,7 @@ session_start();
 class ManufactureController extends Controller
 {
     public function index(){
+        $this->adminAuthCheck();
     	return view('admin.add_manufacture');
     }
 
@@ -30,6 +31,7 @@ class ManufactureController extends Controller
 
     //Show Brands
     public function all_manufacture(){
+        $this->adminAuthCheck();
     	$all_manufacture_info=DB::table('tbl_manufacture')->get();
     	return view('admin.all_manufacture')
     			->with('all_manufacture_info',$all_manufacture_info);
@@ -38,6 +40,7 @@ class ManufactureController extends Controller
 
     //Publishing Status
     public function inactive_manufacture($manufacture_id){
+        $this->adminAuthCheck();
     	DB::table('tbl_manufacture')
     			->where('manufacture_id', $manufacture_id)
     			->update(['publication_status'=>0]);
@@ -45,6 +48,7 @@ class ManufactureController extends Controller
     	return redirect::to('/all-manufacture');
     }
     public function active_manufacture($manufacture_id){
+        $this->adminAuthCheck();
     	DB::table('tbl_manufacture')
     			->where('manufacture_id', $manufacture_id)
     			->update(['publication_status'=>1]);
@@ -54,6 +58,7 @@ class ManufactureController extends Controller
 
     //Edit Manufacture
     public function edit_manufacture($manufacture_id){
+        $this->adminAuthCheck();
     	$manufacture_info=DB::table('tbl_manufacture')
     		->where('manufacture_id', $manufacture_id)
     		->first();
@@ -74,10 +79,22 @@ class ManufactureController extends Controller
     }
     //Delete Manufacture
     public function delete_manufacture($manufacture_id){
+        $this->adminAuthCheck();
     	DB::table('tbl_manufacture')
     		->where('manufacture_id',$manufacture_id)
     		->delete();
     	Session::put('inactive_message', 'Manufacture Deleted Successfully!');
     	return redirect::to('/all-manufacture');
+    }
+
+    //Authentication
+    public function adminAuthCheck(){
+        $admin_id=Session::get('admin_id');
+        if ($admin_id) {
+            return redirect::to('/dashboard');
+        }
+        else{
+            return redirect::to('/admin')->send();
+        }
     }
 }

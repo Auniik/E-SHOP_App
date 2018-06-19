@@ -21,7 +21,7 @@ Route::get('/', 'HomeController@index');
 //Admin Authentication Routes..............................................
 Route::get('/logout', 'SuperAdminController@logout');
 Route::get('/admin', 'AdminController@index');
-Route::get('/dashboard', 'AdminController@show_dashboard');
+Route::get('/dashboard', 'SuperAdminController@index');
 Route::post('/admin-dashboard', 'AdminController@dashboard');
 
 
@@ -57,3 +57,4 @@ Route::get('/delete-manufacture/{manufacture_id}','ManufactureController@delete_
 //Product Controller...........................................................
 Route::get('/add-product','ProductController@index');
 Route::post('/save-product','ProductController@save_product');
+Route::get('/all-product','ProductController@all_product');

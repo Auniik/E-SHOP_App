@@ -9,6 +9,7 @@ session_start();
 class CategoryController extends Controller
 {
     public function index(){
+        $this->adminAuthCheck();
     	return view('admin.add_category');
     }
 
@@ -31,6 +32,7 @@ class CategoryController extends Controller
 
     //All Categories
     public function all_category(){
+        $this->adminAuthCheck();
     	$all_category_info=DB::table('tbl_category')->get();
     	return view('admin.all_category')
     			->with('all_category_info', $all_category_info);
@@ -38,6 +40,7 @@ class CategoryController extends Controller
 
     //Publishing Category
     public function inactive_category($category_id){
+        $this->adminAuthCheck();
     	DB::table('tbl_category')
     		->where('category_id', $category_id)
     		->update(['publication_status'=>0]);
@@ -45,6 +48,7 @@ class CategoryController extends Controller
     	return redirect::to('/all-category');
     }
     public function active_category($category_id){
+        $this->adminAuthCheck();
     	DB::table('tbl_category')
     		->where('category_id', $category_id)
     		->update(['publication_status'=>1]);
@@ -55,6 +59,7 @@ class CategoryController extends Controller
 
     //Category Edit
     public function edit_category($category_id){
+        $this->adminAuthCheck();
     	$category_info = DB::table('tbl_category')
     		->where('category_id',$category_id)
     		->first();
@@ -79,10 +84,24 @@ class CategoryController extends Controller
     //Delete Category
     public function delete_category($category_id)
     {
+        $this->adminAuthCheck();
     	DB::table('tbl_category')
     		->where('category_id',$category_id)
     		->delete();
     	Session::put('inactive_message', 'Category Deleted Successfully!!');
     	return redirect::to('/all-category');
+    }
+
+
+
+    //authentication
+    public function adminAuthCheck(){
+        $admin_id=Session::get('admin_id');
+        if ($admin_id) {
+            return redirect::to('/dashboard');
+        }
+        else{
+            return redirect::to('/admin')->send();
+        }
     }
 }

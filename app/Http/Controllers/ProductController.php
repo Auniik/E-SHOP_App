@@ -53,4 +53,22 @@ class ProductController extends Controller
     				return Redirect::to('/add-product');
     	}
     }
+
+
+    //Show Products
+    public function all_product(){
+    	$all_product_info = DB::table('tbl_products')->get();
+    	return view('admin.all_product')
+    		->with('all_product_info', $all_product_info);
+    }
+
+    //Delete Products
+
+    public function delete_product($product_id){
+    	DB::table('tbl_products')
+    		->where('product_id',$product_id)
+    		->delete();
+    	Session::put('message','Product Deleted Successfully!!');
+    	return Redirect::to('/all-product');
+    }
 }
