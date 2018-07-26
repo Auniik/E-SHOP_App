@@ -89,10 +89,11 @@ class ProductController extends Controller
     //Delete Products
 
     public function delete_product($product_id){
+        $this->adminAuthCheck();
     	DB::table('tbl_products')
     		->where('product_id',$product_id)
     		->delete();
-    	Session::put('message','Product Deleted Successfully!!');
+    	Session::put('inactive_message','Product Deleted Successfully!!');
     	return Redirect::to('/all-product');
     }
 

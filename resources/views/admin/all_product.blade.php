@@ -84,7 +84,7 @@
 						<a class="btn btn-info" href="{{URL::to('/edit-product/'.$v_product->product_id)}}">
 							<i class="halflings-icon white edit"></i>  
 						</a>
-						<a class="btn btn-danger" href="#">
+						<a class="btn btn-danger" id="delete" href="{{URL::to('/delete-product/'.$v_product->product_id)}}">
 							<i class="halflings-icon white trash"></i> 
 						</a>
 					</td>
