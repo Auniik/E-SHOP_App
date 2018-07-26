@@ -100,6 +100,7 @@ class ProductController extends Controller
     //Edit Product
 
     public function edit_product($product_id){
+        $this->adminAuthCheck();
         $productInfo = DB::table('tbl_products')
                 ->where('product_id',$product_id)
                 ->first();
