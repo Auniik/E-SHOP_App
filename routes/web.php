@@ -58,3 +58,9 @@ Route::get('/delete-manufacture/{manufacture_id}','ManufactureController@delete_
 Route::get('/add-product','ProductController@index');
 Route::post('/save-product','ProductController@save_product');
 Route::get('/all-product','ProductController@all_product');
+
+Route::get('/inactive-product/{product_id}', 'ProductController@inactive_product');
+Route::get('/active-product/{product_id}', 'ProductController@active_product');
+
+Route::get('/edit-product/{product_id}', 'ProductController@edit_product');
+Route::post('/update-product/{product_id}', 'ProductController@update_product');

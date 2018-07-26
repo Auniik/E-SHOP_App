@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
+use URL;
 use DB;
 use Session;
 session_start();
@@ -32,5 +33,6 @@ class AdminController extends Controller
 		
 					
     }
+    
     
 }

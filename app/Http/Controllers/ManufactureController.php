@@ -40,7 +40,6 @@ class ManufactureController extends Controller
 
     //Publishing Status
     public function inactive_manufacture($manufacture_id){
-        $this->adminAuthCheck();
     	DB::table('tbl_manufacture')
     			->where('manufacture_id', $manufacture_id)
     			->update(['publication_status'=>0]);
@@ -48,7 +47,6 @@ class ManufactureController extends Controller
     	return redirect::to('/all-manufacture');
     }
     public function active_manufacture($manufacture_id){
-        $this->adminAuthCheck();
     	DB::table('tbl_manufacture')
     			->where('manufacture_id', $manufacture_id)
     			->update(['publication_status'=>1]);
