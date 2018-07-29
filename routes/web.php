@@ -65,3 +65,9 @@ Route::get('/active-product/{product_id}', 'ProductController@active_product');
 Route::get('/edit-product/{product_id}', 'ProductController@edit_product');
 Route::post('/update-product/{product_id}', 'ProductController@update_product');
 Route::get('/delete-product/{product_id}','ProductController@delete_product');
+
+
+//Slider Controller
+Route::get('/add-slider', 'SliderController@index');
+Route::post('/save-slider', 'SliderController@save_slider');
+Route::get('/all-slider', 'SliderController@all_slider');

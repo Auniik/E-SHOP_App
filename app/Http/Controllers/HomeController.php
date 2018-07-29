@@ -19,6 +19,5 @@ class HomeController extends Controller
 
     	return view('pages.home_content')
     		->with('published_product', $published_product);
-    	// return view('pages.home_content');
     }
 }
