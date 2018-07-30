@@ -98,30 +98,30 @@
 						<li>
 							<a class="dropmenu" href="#category"><i class="icon-th-large"></i><span class="hidden-tablet"> Categories</span></a>
 							<ul>
-								<li><a class="submenu" href="{{URL::to('/all-category')}}"><i class="icon-th"></i><span class="hidden-tablet"> All Category</span></a></li>
-								<li><a class="submenu" href="{{URL::to('/add-category')}}"><i class="icon-th"></i><span class="hidden-tablet"> Add Category</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/all-category')}}">&nbsp;&nbsp;<i class="icon-th"></i> <span class="hidden-tablet"> All Category</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/add-category')}}">&nbsp;&nbsp;<i class="icon-th"></i> <span class="hidden-tablet"> Add Category</span></a></li>
 							</ul>
 						</li>
 						<li>
 							<a class="dropmenu" href="#products"><i class="icon-gift"></i><span class="hidden-tablet"> Manufactures</span></a>
 							<ul>
-								<li><a class="submenu" href="{{URL::to('/all-manufacture')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Manufacture</span></a></li>
-								<li><a class="submenu" href="{{URL::to('/add-manufacture')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Manufacture</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/all-manufacture')}}">&nbsp;&nbsp;<i class="icon-file-alt"></i> <span class="hidden-tablet"> All Manufacture</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/add-manufacture')}}">&nbsp;&nbsp;<i class="icon-file-alt"></i> <span class="hidden-tablet"> Add Manufacture</span></a></li>
 							</ul>
 						</li>
 
 						<li>
 							<a class="dropmenu" href="#products"><i class="icon-shopping-cart"></i><span class="hidden-tablet"> Products</span><span class="label label-important"> New </span></a>
 							<ul>
-								<li><a class="submenu" href="{{URL::to('/all-product')}}"><i class="icon-th-list"></i><span class="hidden-tablet"> All Products</span></a></li>
-								<li><a class="submenu" href="{{URL::to('/add-product')}}"><i class="icon-th-list"></i><span class="hidden-tablet"> Add Product</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/all-product')}}">&nbsp;&nbsp;<i class="icon-th-list"></i> <span class="hidden-tablet"> All Products</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/add-product')}}">&nbsp;&nbsp;<i class="icon-th-list"></i> <span class="hidden-tablet"> Add Product</span></a></li>
 							</ul>
 						</li>
 						<li>
 							<a class="dropmenu" href="#slider"><i class="icon-picture"></i><span class="hidden-tablet"> Sliders</span></a>
 							<ul>
-								<li><a class="submenu" href="{{URL::to('/all-slider')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Slider</span></a></li>
-								<li><a class="submenu" href="{{URL::to('/add-slider')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Slider</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/all-slider')}}">&nbsp;&nbsp;<i class="icon-file-alt"></i> <span class="hidden-tablet"> All Slider</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/add-slider')}}">&nbsp;&nbsp;<i class="icon-file-alt"></i> <span class="hidden-tablet"> Add Slider</span></a></li>
 							</ul>
 						</li>
 						<li><a href="#"><i class="icon-list-alt"></i><span class="hidden-tablet"> Social Links</span></a></li>

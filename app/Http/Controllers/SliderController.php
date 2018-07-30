@@ -10,8 +10,11 @@ use Redirect;
 class SliderController extends Controller
 {
     public function index(){
+    	$this->adminAuthCheck();
     	return view('admin.add_slider');
     }
+
+    //SAVE SLIDER
     public function save_slider(Request $request){
     	$data=array();
     	$data['publication_status']=$request->publication_status;
@@ -38,5 +41,49 @@ class SliderController extends Controller
     				return Redirect::to('/add-slider');
     	}
     	return redirect::to('/add-slider');
+    }
+
+    //ALL SLIDER
+    public function all_slider(){
+    	$this->adminAuthCheck();
+    	$all_slider_info=DB::table('tbl_slider')->get();
+    	return view('admin.all_slider')
+    			->with('all_slider_info',$all_slider_info);
+    }
+
+    //PUBLICATION STATUS
+    public function inactive_slider($slider_id){
+    	DB::table('tbl_slider')
+    			->where('slider_id',$slider_id)
+    			->update(['publication_status'=>0]);
+		Session::put('inactive_message', 'Slider Image is Inactived');
+		return redirect::to('/all-slider');
+    }
+
+    public function active_slider($slider_id){
+    	DB::table('tbl_slider')
+    		->where('slider_id',$slider_id)
+    		->update(['publication_status'=>1]);
+    	Session::put('active_message','Slider Image is Actived');
+    	return redirect::to('/all-slider');
+    }
+    public function delete_slider($slider_id){
+    	$this->adminAuthCheck();
+    	DB::table('tbl_slider')
+    		->where('slider_id',$slider_id)
+    		->delete();
+    	Session::put('inactive_message','Slider Image Deleted Successfully!');
+    	return redirect::to('/all-slider');
+    }
+
+    //Authentication
+    public function adminAuthCheck(){
+    	$admin_id=Session::get('admin_id');
+    	if ($admin_id) {
+    		return Redirect::to('/dashboard');
+    	}
+    	else{
+    		return Redirect::to('/admin')->send();
+    	}
     }
 }
