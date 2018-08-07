@@ -1,23 +1,16 @@
 <?php
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
+//..................................................................
 //Front End Routes...............................................
 Route::get('/', 'HomeController@index');
+//Products By Category
+Route::get('/product_by_category/{category_id}', 'HomeController@categorised_products');
+Route::get('/product_by_manufacture/{manufacture_id}', 'HomeController@manufactured_products');
 
 
 
 
 
+//.........................................................................
 //Admin Authentication Routes..............................................
 Route::get('/logout', 'SuperAdminController@logout');
 Route::get('/admin', 'AdminController@index');
@@ -67,7 +60,7 @@ Route::post('/update-product/{product_id}', 'ProductController@update_product');
 Route::get('/delete-product/{product_id}','ProductController@delete_product');
 
 
-//Slider Controller
+//Slider Controller.............................................................
 Route::get('/add-slider', 'SliderController@index');
 Route::post('/save-slider', 'SliderController@save_slider');
 Route::get('/all-slider', 'SliderController@all_slider');
@@ -76,3 +69,6 @@ Route::get('/inactive-slider/{slider_id}', 'SliderController@inactive_slider');
 Route::get('/active-slider/{slider_id}', 'SliderController@active_slider');
 
 Route::get('/delete-slider/{slider_id}', 'SliderController@delete_slider');
+
+
+//
