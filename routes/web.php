@@ -5,6 +5,11 @@ Route::get('/', 'HomeController@index');
 //Products By Category
 Route::get('/product_by_category/{category_id}', 'HomeController@categorised_products');
 Route::get('/product_by_manufacture/{manufacture_id}', 'HomeController@manufactured_products');
+Route::get('/view-product/{product_id}', 'HomeController@product_details');
+
+//CART MANAGEMENT
+Route::post('/add-to-cart','CartController@add_to_cart');
+Route::get('/show-cart','CartController@show_cart');
 
 
 

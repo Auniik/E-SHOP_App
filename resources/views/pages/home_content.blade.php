@@ -1,5 +1,8 @@
 @extends('layout')
+@section('slider')
+@stop
 @section('content')
+
     <h2 class="title text-center">Features Items</h2>
     @foreach($published_product as $v_published_product)
     <div class="col-sm-4">
@@ -9,13 +12,13 @@
                     <img src="{{URL::to($v_published_product->product_image)}}" style="height: 250px" alt="" />
                     <h2>{{$v_published_product->product_price}} TK</h2>
                     <p>{{$v_published_product->product_name}}</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                    <a href="{{URL::to('/view-product/'.$v_published_product->product_id)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                 </div>
                 <div class="product-overlay">
                     <div class="overlay-content">
-                        <h2>{{$v_published_product->product_price}}</h2>
+                        <h2>{{$v_published_product->product_price}} TK</h2>
                         <p>{{$v_published_product->product_name}}</p>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                        <a href="{{URL::to('/view-product/'.$v_published_product->product_id)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                     </div>
                 </div>
                 {{-- <img src="{{URL::to('frontend/images/home/new.png')}}" class="new" alt="" /> --}}
@@ -23,7 +26,7 @@
             <div class="choose">
                 <ul class="nav nav-pills nav-justified">
                     <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                    <li><a href="#"><i class="fa fa-plus-square"></i>View Product</a></li>
+                    <li><a href="{{URL::to('/view-product/'.$v_published_product->product_id)}}"><i class="fa fa-plus-square"></i>View Product</a></li>
                 </ul>
             </div>
         </div>

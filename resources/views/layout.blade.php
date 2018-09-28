@@ -57,7 +57,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="index.html"><img src="{{URL::to('frontend/images/home/logo.png')}}" alt="" /></a>
+                            <a href="{{URL::to('/')}}"><img src="{{URL::to('frontend/images/home/logo.png')}}" alt="" /></a>
                         </div>
                         <div class="btn-group pull-right">
                             <div class="btn-group">
@@ -88,9 +88,9 @@
                             <ul class="nav navbar-nav">
                                 <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
                                 <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                                <li><a href=""><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                <li><a href=""><i class="fa fa-lock"></i> Login</a></li>
                             </ul>
                         </div>
                     </div>
@@ -112,14 +112,14 @@
                         </div>
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="index.html" class="active">Home</a></li>
+                                <li><a href="{{URL::to('/')}}" class="active">Home</a></li>
                                 <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Products</a></li>
-                                        <li><a href="product-details.html">Product Details</a></li> 
-                                        <li><a href="checkout.html">Checkout</a></li> 
-                                        <li><a href="cart.html">Cart</a></li> 
-                                        <li><a href="login.html">Login</a></li> 
+                                        <li><a href="#">Products</a></li>
+                                        <li><a href="#">Product Details</a></li> 
+                                        <li><a href="#">Checkout</a></li> 
+                                        <li><a href="{{URL::to('/show-cart')}}">Cart</a></li> 
+                                        <li><a href="#">Login</a></li> 
                                     </ul>
                                 </li> 
                                 <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
@@ -128,8 +128,8 @@
                                         <li><a href="blog-single.html">Blog Single</a></li>
                                     </ul>
                                 </li> 
-                                <li><a href="404.html">404</a></li>
-                                <li><a href="contact-us.html">Contact</a></li>
+                                <li><a href="#">404</a></li>
+                                <li><a href="#">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -142,64 +142,11 @@
             </div>
         </div><!--/header-bottom-->
     </header><!--/header-->
-    
+
     <section id="slider"><!--slider-->
-        {{-- @yield('slider_content') --}}
-        <div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    @php
-                        $all_published_slider=DB::table('tbl_slider')
-                            ->where(['publication_status'=>1])
-                            ->get();
-                    @endphp
-                    @foreach($all_published_slider as $v_slider)
-                        <li data-target="#slider-carousel" data-slide-to="{{ $loop->index }}" class="{{$loop->first ? 'active' : '' }}"></li>
-                    @endforeach
-                </ol>
-                
-                {{-- <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <div class="col-sm-6">
-                            <h1><span>E</span>-SHOPPER</h1>
-                            <h2>Free E-Commerce Template</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                            <button type="button" class="btn btn-default get">Get it now</button>
-                        </div>
-                        <div class="col-sm-6"> --}}
-                            <div class="carousel-inner" role="listbox">
-                            @foreach($all_published_slider as $v_slider)
-                                <div class="item {{ $loop->first ? ' active' : '' }}" >
-                                    <img src="{{ $v_slider->slider_image }}" style="height:450px; width:900px" class="girl img-responsive" alt="" />
-                                </div>
-                            @endforeach
-                            {{-- <img src="{{asset('frontend/images/home/pricing.png')}}"  class="pricing" alt="" /> --}}
-                        {{-- </div> --}}
-                    {{-- </div> --}}
-                    
-                <!-- Controls -->
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-                {{-- <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
-                    <i class="fa fa-angle-right"></i>
-                </a> --}}
-            </div>
-            
-        </div>
-    </div>
-</div>
-    </section><!--/slider-->
+        @yield('slider')
+    </section>
+    
     
     <section>
         <div class="container">
