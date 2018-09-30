@@ -1,6 +1,7 @@
 @extends('layout')
 @section('slider')
-@stop
+    @include('slider')
+@endsection
 @section('content')
 
     <h2 class="title text-center">Features Items</h2>

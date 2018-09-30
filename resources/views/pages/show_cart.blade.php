@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 <section id="cart_items">
-	<div class="container-fluid">
+	<div class="container col-md-12">
 		<div class="breadcrumbs">
 			<ol class="breadcrumb">
 			  <li><a href="#">Home</a></li>
@@ -14,7 +14,7 @@
 				<thead>
 					<tr class="cart_menu">
 						<td class="image">Item</td>
-						<td class="description"></td>
+						<td class="description">Description</td>
 						<td class="price">Price</td>
 						<td class="quantity">Quantity</td>
 						<td class="total">Total</td>
@@ -28,27 +28,27 @@
 					@endphp
 					@foreach ($contents as $v_content)
 					<tr>
-						<td class="cart_product">
+						<td class="cart_product col-md-1">
 							<a href=""><img src="{{URL::to($v_content->options->image)}}" height="80px" width="80px" alt=""></a>
 						</td>
-						<td class="cart_description">
+						<td class="cart_description col-md-4">
 							<h4><a href="">{{$v_content->name}}</a></h4>
 							<p>Product ID:{{$v_content->id}}</p>
 						</td>
-						<td class="cart_price">
-							<p>{{$v_content->price}} TK</p>
+						<td class="cart_price col-md-2">
+							<p>{{$v_content->price}}/-</p>
 						</td>
-						<td class="cart_quantity">
+						<td class="cart_quantity col-md-2">
 							<div class="cart_quantity_button">
 								{{-- <a class="cart_quantity_up" href=""> + </a> --}}
 								<input class="cart_quantity_input" type="text" name="quantity" value="{{$v_content->qty}}" autocomplete="off" size="2">
-								{{-- <a class="cart_quantity_down" href=""> - </a> --}}
+								<a class="cart_quantity_down" href=""><i class="fa fa-edit"></i></a>
 							</div>
 						</td>
-						<td class="cart_total">
-							<p class="cart_total_price">{{$v_content->total}}</p>
+						<td class="cart_total col-md-2">
+							<p class="cart_total_price">{{$v_content->total}}/-</p>
 						</td>
-						<td class="cart_delete">
+						<td class="cart_delete col-md-1">
 							<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
 						</td>
 					</tr>
