@@ -10,6 +10,8 @@ Route::get('/view-product/{product_id}', 'HomeController@product_details');
 //CART MANAGEMENT
 Route::post('/add-to-cart','CartController@add_to_cart');
 Route::get('/show-cart','CartController@show_cart');
+Route::get('/delete-cart/{rowId}','CartController@delete_to_cart');
+Route::get('/update-cart','CartController@update_cart');
 
 
 

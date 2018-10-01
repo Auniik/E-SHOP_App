@@ -40,16 +40,18 @@
 						</td>
 						<td class="cart_quantity col-md-2">
 							<div class="cart_quantity_button">
-								{{-- <a class="cart_quantity_up" href=""> + </a> --}}
-								<input class="cart_quantity_input" type="text" name="quantity" value="{{$v_content->qty}}" autocomplete="off" size="2">
-								<a class="cart_quantity_down" href=""><i class="fa fa-edit"></i></a>
+								<form action="{{URL::to('/update-cart')}}" method="Get">
+									<input class="cart_quantity_input" style="height:30px; width:60px" type="number" name="qty" value="{{$v_content->qty}}" autocomplete="off" size="2">
+									<input type="hidden" name="rowId" value="{{$v_content->rowId}}">
+									<input type="submit" class="cart_quantity_down btn btn-sm btn-default" value=" + ">
+								</form>
 							</div>
 						</td>
 						<td class="cart_total col-md-2">
 							<p class="cart_total_price">{{$v_content->total}}/-</p>
 						</td>
 						<td class="cart_delete col-md-1">
-							<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+							<a class="cart_quantity_delete" href="{{URL::to('/delete-cart/'.$v_content->rowId)}}"><i class="fa fa-times"></i></a>
 						</td>
 					</tr>
 					@endforeach
