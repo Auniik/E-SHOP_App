@@ -96,13 +96,19 @@
 				  <div class="control-group">
 					<label class="control-label" for="focusedInput2">Product Price</label>
 					<div class="controls">
-					  <input class="input-xlarge focused" id="focusedInput2" type="text" name="product_price" required="">
+					  <input class="input-xlarge focused" id="focusedInput2" type="number" min="0" name="product_price" required="">
 					</div>
 				  </div>
 				  <div class="control-group">
 					<label class="control-label" for="focusedInput3">Product Size</label>
 					<div class="controls">
 					  <input class="input-xlarge focused" id="focusedInput3" type="text" name="product_size" required="">
+					</div>
+				  </div>
+				  <div class="control-group">
+					<label class="control-label" for="focusedInput3">Available In Stock</label>
+					<div class="controls">
+					  <input class="input-xlarge focused" id="focusedInput3" type="number" min="0" name="available_product" required="">
 					</div>
 				  </div>
 				  <div class="control-group">

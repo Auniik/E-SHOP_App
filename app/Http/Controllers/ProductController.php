@@ -26,6 +26,7 @@ class ProductController extends Controller
     	$data['product_price']=$request->product_price;
     	$data['product_size']=$request->product_size;
     	$data['product_color']=$request->product_color;
+        $data['available_product']=$request->available_product;
     	$data['publication_status']=$request->publication_status;
     	if ($data['publication_status']==null) {
     		$data['publication_status']=0;
@@ -144,6 +145,15 @@ class ProductController extends Controller
                     Session::put('message', 'Product Updated Successfully Without Image');
                     return Redirect::to('/all-product');
         }
+    }
+    public function update_stock_product(Request $request, $product_id){
+        $data=array();
+        $data['available_product']=$request->available_product;
+            DB::table('tbl_products')
+                    ->where('product_id',$product_id)
+                    ->update($data);
+        Session::put('active_message', 'Product Stock updated Successfully');
+        return Redirect::to('/all-product');
     }
 
     //Authentication

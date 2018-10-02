@@ -39,8 +39,8 @@
 					  <th>Product Name</th>
 					  <th>Category</th>
 					  <th>Price</th>
-					  <th>Size</th>
 					  <th>Color</th>
+					  <th>Avail In Stock</th>
 					  <th>Status</th>
 
 					  <th>Actions</th>
@@ -57,8 +57,14 @@
 					<td class="center">{{$v_product->product_name}}</</td>
 					<td class="center">{{$v_product->category_name}}</</td>
 					<td class="center">{{$v_product->product_price}}</</td>
-					<td class="center">{{$v_product->product_size}}</</td>
 					<td class="center">{{$v_product->product_color}}</</td>
+					<td class="center">
+						<form action="{{URL::to('/update-stock-product/'.$v_product->product_id)}}" method="post" style="margin: 0">
+							@csrf
+							<input style="height:25px; width:40px" type="number" name="available_product" min="0" value="{{$v_product->available_product}}" autocomplete="off">
+							<input type="submit" class="btn btn-sm btn-default" value="+">
+						</form>
+					</</td>
 
 					@if($v_product->publication_status==1)
 					<td class="center">
