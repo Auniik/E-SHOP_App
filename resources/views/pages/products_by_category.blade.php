@@ -1,4 +1,7 @@
 @extends('layout')
+@section('aside')
+    @include('aside')
+@endsection
 @section('content')
     <h2 class="title text-center">Features Items</h2>
     @foreach($products_by_category as $v_categorised_product)

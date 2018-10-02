@@ -15,14 +15,11 @@ class HomeController extends Controller
                                     ->select('tbl_products.*', 'tbl_category.category_name', 'tbl_manufacture.manufacture_name')
                                     ->where('tbl_products.publication_status',1)
                                     ->limit(9)
+                                    ->orderBy('product_id', 'DESC')
                                     ->get();
+    	return view('pages.home_content')
+    		->with('published_product', $published_product);
 
-           $manage_home = view('pages.home_content')
-           				->with('published_product',$published_product);
-           	return view('layout')
-           				->with('pages.home_content',$manage_home);
-    	// return view('pages.home_content')
-    	// 	->with('published_product', $published_product);
     }
 
     public function categorised_products($category_id){
@@ -32,6 +29,7 @@ class HomeController extends Controller
     			->where('tbl_category.category_id',$category_id)
     			->where('tbl_products.publication_status',1)
     			->limit(18)
+                ->orderBy('product_id', 'DESC')
     			->get();
     		return view('pages.products_by_category')
     				->with('products_by_category', $products_by_category);
@@ -44,6 +42,7 @@ class HomeController extends Controller
     			->where('tbl_manufacture.manufacture_id', $manufacture_id)
     			->where('tbl_products.publication_status',1)
     			->limit(18)
+                ->orderBy('product_id', 'DESC')
     			->get();
     	return view('pages.products_by_manufacture')
     			->with('products_by_manufacture', $products_by_manufacture);

@@ -1,6 +1,8 @@
 @extends('layout')
+@section('aside')
+    @include('aside')
+@endsection
 @section('content')
-
 <div class="product-details"><!--product-details-->
 	<div class="col-sm-5">
 		<div class="view-product">
@@ -50,7 +52,7 @@
 				<form class="container" method="post" action="{{URL::to('/add-to-cart')}}">
 					@csrf
 					<label>Quantity:</label>
-					<input type="text" name="qty" value="1" />
+					<input type="number" name="qty" value="1" min="1" />
 					<input type="hidden" value="{{$view_product->product_id}}" name="product_id" />
 					<button type="submit" class="btn btn-fefault cart">
 						<i class="fa fa-shopping-cart"></i>

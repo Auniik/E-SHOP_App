@@ -13,8 +13,15 @@ Route::get('/show-cart','CartController@show_cart');
 Route::get('/delete-cart/{rowId}','CartController@delete_to_cart');
 Route::get('/update-cart','CartController@update_cart');
 
+//WishList
+// Route::get('/show-wishlist','CartController@show_wishlist');
+// Route::get('/add-to-wishlist/{product_id}','CartController@add_to_wishlist');
 
-
+//Checkout Management
+Route::get('/login-check','CheckoutController@login_check');
+Route::post('/customer-registration','CheckoutController@customer_registration');
+Route::get('/checkout','CheckoutController@checkout');
+//Login Check
 
 
 //.........................................................................
