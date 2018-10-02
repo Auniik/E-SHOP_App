@@ -39,7 +39,8 @@
 				<i class="fa fa-angle-right"></i>
 			  </a>
 		</div>
-
+					
+					
 	</div>
 	<div class="col-sm-7">
 		<div class="product-information"><!--/product-information-->
@@ -52,16 +53,22 @@
 				<form class="container" method="post" action="{{URL::to('/add-to-cart')}}">
 					@csrf
 					<label>Quantity:</label>
-					<input type="number" name="qty" value="1" min="1" />
+					<input type="number" name="qty" value="1" min="1" max="{{$view_product->available_product}}" />
 					<input type="hidden" value="{{$view_product->product_id}}" name="product_id" />
-					<button type="submit" class="btn btn-fefault cart">
+					<button type="submit"  class="btn btn-fefault cart" >
 						<i class="fa fa-shopping-cart"></i>
 						Add to cart
 					</button>
+
+
 				</form>
 				
 			</span>
-			<p><b>Availability:</b> In Stock</p>
+			@if($view_product->available_product==0)
+				<p><b>Availability:</b> <span style="color:tomato; font-size:110%">Out of Stock</span></p>
+			@else
+			<p><b>Availability:</b> {{$view_product->available_product}} Piece</p>
+			@endif
 			<p><b>Condition:</b> New</p>
 			<p><b>Brand:</b> {{$view_product->manufacture_name}}</p>
 			<a href=""><img src="{{URL::to('frontend/images/product-details/share.png')}}" class="share img-responsive"  alt="" /></a>
