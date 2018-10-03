@@ -39,7 +39,12 @@
 				<i class="fa fa-angle-right"></i>
 			  </a>
 		</div>
-					
+					<?php
+
+						$content_qty=Session::get('content_qty');
+						
+
+					?>
 					
 	</div>
 	<div class="col-sm-7">
@@ -53,14 +58,24 @@
 				<form class="container" method="post" action="{{URL::to('/add-to-cart')}}">
 					@csrf
 					<label>Quantity:</label>
+					{{-- @if($view_product->available_product-$content_qty==0) --}}
 					<input type="number" name="qty" value="1" min="1" max="{{$view_product->available_product}}" />
+					{{-- @elseif($view_product->available_product-$content_qty)
+					<input type="number" name="qty" value="1" min="1" max="{{$view_product->available_product-$content_qty}}" />
+					@endif --}}
 					<input type="hidden" value="{{$view_product->product_id}}" name="product_id" />
+
+					@if($view_product->available_product-$content_qty==0)
+					<button type="submit"  class="btn btn-fefault cart" disabled="">
+						<i class="fa fa-shopping-cart"></i>
+						Add to cart
+					</button>
+					@else
 					<button type="submit"  class="btn btn-fefault cart" >
 						<i class="fa fa-shopping-cart"></i>
 						Add to cart
 					</button>
-
-
+					@endif
 				</form>
 				
 			</span>
