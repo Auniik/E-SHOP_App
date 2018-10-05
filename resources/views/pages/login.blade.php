@@ -25,7 +25,9 @@
 			@php
 			$login_error=Session::get('login_error');
 			if($login_error){
-				echo $login_error;
+				echo "<div class='alert alert-danger'>
+							<button type='button' class='close' data-dismiss='alert'>×</button>
+							<strong>$login_error </strong> </div>";
 				Session::put('login_error',null);
 			}
 			@endphp

@@ -21,10 +21,11 @@ Route::get('/update-cart','CartController@update_cart');
 Route::get('/checkout','CheckoutController@checkout');
 Route::get('/login-check','CheckoutController@login_check');
 Route::post('/save-shipping', 'CheckoutController@save_shipping');
+
 //Login Session
-Route::post('/customer-registration','CheckoutController@customer_registration');
-Route::get('/customer-logout', 'CheckoutController@customer_logout');
-Route::post('/customer-login', 'CheckoutController@customer_login');
+Route::post('/customer-registration','CustomerController@customer_registration');
+Route::get('/customer-logout', 'CustomerController@customer_logout');
+Route::post('/customer-login', 'CustomerController@customer_login');
 
 
 //Payment managements
