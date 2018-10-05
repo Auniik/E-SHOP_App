@@ -20,24 +20,41 @@
 					</tr>
 				</thead>
 				<tbody>
-					
+					@php
+						$wishlist=Cart::instance('wishlist')->content();
+					@endphp
+
+					@foreach ($wishlist as $v_wishlist)
 					<tr>
+						<?php 
+								$published_product=DB::table('tbl_products')
+									->where('product_id',$v_wishlist->id)
+									->get();
+									Session::put('content_qty', $v_wishlist->qty);
+								foreach ($published_product as $v_product) {
+								
+						?>
 						<td class="cart_product col-md-1">
-							<a href=""><img src="{{URL::to($v_content->options->image)}}" height="80px" width="80px" alt=""></a>
+							<a href=""><img src="{{URL::to($v_wishlist->options->image)}}" height="80px" width="80px" alt=""></a>
 						</td>
 						<td class="cart_description col-md-4">
-							<h4><a href="{{-- {{URL::to('/view-product/'.$v_published_product->product_id)}} --}}">{{$v_content->name}}</a></h4>
-							<p>Product ID:{{$v_content->id}}</p>
+							<h4><a href="{{URL::to('/view-product/'.$v_product->product_id)}}">{{$v_wishlist->name}}</a></h4>
+						<?php
+							}
+						?>
+							<p>Product ID:{{$v_wishlist->id}}</p>
 						</td>
+						<input type="hidden" name="rowId" value="{{$v_wishlist->rowId}}">
 						<td class="cart_price col-md-2">
-							<p>{{$v_content->price}}/-</p>
+							<p>{{$v_wishlist->price}}/-</p>
 						</td>
 						
 						<td class="cart_delete col-md-1">
-							<a class="cart_quantity_delete" href="{{URL::to('/delete-cart/'.$v_content->rowId)}}"><i class="fa fa-times"></i></a>
+
+							<a class="cart_quantity_delete" href="{{URL::to('/delete-wishlist/'.$v_wishlist->rowId)}}"><i class="fa fa-times"></i></a>
 						</td>
 					</tr>
-					
+					@endforeach
 				</tbody>
 			</table>
 		</div>
@@ -45,89 +62,7 @@
 </section> <!--/#cart_items-->
 
 
-			
-		</div>
-	</div>
-</section><!--/#do_action-->
+	
 
-<footer id="footer"><!--Footer-->
-	<div class="footer-top">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-2">
-					<div class="companyinfo">
-						<h2><span>e</span>-shopper</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
-					</div>
-				</div>
-				<div class="col-sm-7">
-					<div class="col-sm-3">
-						<div class="video-gallery text-center">
-							<a href="#">
-								<div class="iframe-img">
-									<img src="images/home/iframe1.png" alt="" />
-								</div>
-								<div class="overlay-icon">
-									<i class="fa fa-play-circle-o"></i>
-								</div>
-							</a>
-							<p>Circle of Hands</p>
-							<h2>24 DEC 2014</h2>
-						</div>
-					</div>
-					
-					<div class="col-sm-3">
-						<div class="video-gallery text-center">
-							<a href="#">
-								<div class="iframe-img">
-									<img src="images/home/iframe2.png" alt="" />
-								</div>
-								<div class="overlay-icon">
-									<i class="fa fa-play-circle-o"></i>
-								</div>
-							</a>
-							<p>Circle of Hands</p>
-							<h2>24 DEC 2014</h2>
-						</div>
-					</div>
-					
-					<div class="col-sm-3">
-						<div class="video-gallery text-center">
-							<a href="#">
-								<div class="iframe-img">
-									<img src="images/home/iframe3.png" alt="" />
-								</div>
-								<div class="overlay-icon">
-									<i class="fa fa-play-circle-o"></i>
-								</div>
-							</a>
-							<p>Circle of Hands</p>
-							<h2>24 DEC 2014</h2>
-						</div>
-					</div>
-					
-					<div class="col-sm-3">
-						<div class="video-gallery text-center">
-							<a href="#">
-								<div class="iframe-img">
-									<img src="images/home/iframe4.png" alt="" />
-								</div>
-								<div class="overlay-icon">
-									<i class="fa fa-play-circle-o"></i>
-								</div>
-							</a>
-							<p>Circle of Hands</p>
-							<h2>24 DEC 2014</h2>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="address">
-						<img src="images/home/map.png" alt="" />
-						<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
 @stop

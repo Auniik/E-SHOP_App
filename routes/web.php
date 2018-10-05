@@ -14,8 +14,9 @@ Route::get('/delete-cart/{rowId}','CartController@delete_to_cart');
 Route::get('/update-cart','CartController@update_cart');
 
 //WishList
-// Route::get('/show-wishlist','CartController@show_wishlist');
-// Route::get('/add-to-wishlist/{product_id}','CartController@add_to_wishlist');
+Route::get('/show-wishlist','CartController@show_wishlist');
+Route::get('/add-to-wishlist/{product_id}','CartController@add_to_wishlist');
+Route::get('/delete-wishlist/{rowId}','CartController@delete_to_wishlist');
 
 //Checkout Management
 Route::get('/checkout','CheckoutController@checkout');
@@ -25,7 +26,7 @@ Route::post('/save-shipping', 'CheckoutController@save_shipping');
 //Login Session
 Route::post('/customer-registration','CustomerController@customer_registration');
 Route::get('/customer-logout', 'CustomerController@customer_logout');
-Route::post('/customer-login', 'CustomerController@customer_login');
+Route::post('/customer-login', 'CustomerController@customfr_login');
 
 
 //Payment managements

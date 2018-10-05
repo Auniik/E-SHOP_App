@@ -93,7 +93,7 @@
                                 @if($customer_id != null)
                                 <li><a href="#"><i class="fa fa-user"></i> {{$customer_name}}</a></li>
                                 @endif
-                                <li><a href="{{-- {{'/show-wishlist'}} --}}"><i class="fa fa-star"></i> Wishlist</a></li>
+                                <li><a href="{{'/show-wishlist'}}"><i class="fa fa-star"></i> Wishlist</a></li>
 
                                 @if($customer_id != null)
                                     <li><a href="{{URL::to('/checkout')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
@@ -101,7 +101,7 @@
                                     <li><a href="{{URL::to('/login-check')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                 @endif
                                 
-                                <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Cart({{Cart::content()->count()}})</a></li>
+                                <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Cart({{Cart::instance('default')->count()}})</a></li>
 
                                 @if($customer_id != null)
                                 <li><a href="{{URL::to('/customer-logout')}}"><i class="fa fa-lock"></i> Logout</a></li>

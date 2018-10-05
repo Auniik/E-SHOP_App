@@ -30,7 +30,7 @@
             </div>
             <div class="choose">
                 <ul class="nav nav-pills nav-justified">
-                    <li><a href="{{-- {{URL::to('/add-to-wishlist/'.$v_published_product->product_id)}} --}}"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                    <li><a href="{{URL::to('/add-to-wishlist/'.$v_published_product->product_id)}}"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
                     <li><a href="{{URL::to('/view-product/'.$v_published_product->product_id)}}"><i class="fa fa-plus-square"></i>View Product</a></li>
                 </ul>
             </div>
