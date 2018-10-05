@@ -22,9 +22,16 @@
 		</div>
 
 		<div class="col-sm-4">
+			@php
+			$login_error=Session::get('login_error');
+			if($login_error){
+				echo $login_error;
+				Session::put('login_error',null);
+			}
+			@endphp
 			<div class="login-form"><!--login form-->
 				<h2>Login to your account</h2>
-				<form action="#" method="post">
+				<form action="{{URL::to('/customer-login')}}" method="post">
 					@csrf
 					<input type="email" placeholder="Email Address" name="customer_email" required="" />
 					<input type="password" placeholder="Password" name="customer_password" required="" />

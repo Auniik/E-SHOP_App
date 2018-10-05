@@ -86,12 +86,14 @@
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-                                <li><a href="{{-- {{'/show-wishlist'}} --}}"><i class="fa fa-star"></i> Wishlist</a></li>
-
                                 @php
                                     $customer_id=Session::get('customer_id');
+                                    $customer_name=Session::get('customer_name');
                                 @endphp
+                                @if($customer_id != null)
+                                <li><a href="#"><i class="fa fa-user"></i> {{$customer_name}}</a></li>
+                                @endif
+                                <li><a href="{{-- {{'/show-wishlist'}} --}}"><i class="fa fa-star"></i> Wishlist</a></li>
 
                                 @if($customer_id != null)
                                     <li><a href="{{URL::to('/checkout')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>

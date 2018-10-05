@@ -20,9 +20,12 @@ Route::get('/update-cart','CartController@update_cart');
 //Checkout Management
 Route::get('/checkout','CheckoutController@checkout');
 Route::get('/login-check','CheckoutController@login_check');
+Route::post('/save-shipping', 'CheckoutController@save_shipping');
+//Login Session
 Route::post('/customer-registration','CheckoutController@customer_registration');
 Route::get('/customer-logout', 'CheckoutController@customer_logout');
-Route::post('/save-shipping', 'CheckoutController@save_shipping');
+Route::post('/customer-login', 'CheckoutController@customer_login');
+
 
 //Payment managements
 // Route::get('/payment')
