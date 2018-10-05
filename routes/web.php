@@ -18,16 +18,16 @@ Route::get('/update-cart','CartController@update_cart');
 // Route::get('/add-to-wishlist/{product_id}','CartController@add_to_wishlist');
 
 //Checkout Management
-// $customer_id=Session::get('customer_id');
-// if($customer_id){
-	Route::get('/checkout','CheckoutController@checkout');
-// }
-// else{
-	Route::get('/login-check','CheckoutController@login_check');
-// }
+Route::get('/checkout','CheckoutController@checkout');
+Route::get('/login-check','CheckoutController@login_check');
 Route::post('/customer-registration','CheckoutController@customer_registration');
+Route::get('/customer-logout', 'CheckoutController@customer_logout');
+Route::post('/save-shipping', 'CheckoutController@save_shipping');
 
-//Login Check
+//Payment managements
+// Route::get('/payment')
+
+
 
 
 //.........................................................................

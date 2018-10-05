@@ -21,7 +21,8 @@
 						<div class="bill-to">
 							<p>Bill To</p>
 							<div class="form-two" style="margin-left: 0;">
-								<form action="{{URL::to('/checkout')}}" method="get">
+								<form action="{{URL::to('/save-shipping')}}" method="post">
+									@csrf
 									<input type="text" name="shipping_first_name" placeholder="First Name*" required="">
 									<input type="text" name="shipping_last_name" placeholder="Last Name" required="">
 									<input type="email" name="shipping_email" placeholder="Email*" required="">

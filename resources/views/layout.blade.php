@@ -99,10 +99,10 @@
                                     <li><a href="{{URL::to('/login-check')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                 @endif
                                 
-                                <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Cart({{Cart::content()->count()}})</a></li>
 
                                 @if($customer_id != null)
-                                <li><a href="{{URL::to('/login-check')}}"><i class="fa fa-lock"></i> Logout</a></li>
+                                <li><a href="{{URL::to('/customer-logout')}}"><i class="fa fa-lock"></i> Logout</a></li>
                                 @else
                                 <li><a href="{{URL::to('/login-check')}}"><i class="fa fa-lock"></i> Login</a></li>
                                 @endif
@@ -138,7 +138,7 @@
                                         <li><a href="{{URL::to('/login-check')}}">Checkout</a></li> 
                                         @endif
                                         <li><a href="{{URL::to('/show-cart')}}">Cart</a></li> 
-                                        <li><a href="#">Login</a></li> 
+                                        
                                     </ul>
                                 </li> 
                                 <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>

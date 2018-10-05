@@ -14,14 +14,14 @@ class CreateTblShippingTable extends Migration
     public function up()
     {
         Schema::create('tbl_shipping', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('shippingfirst_name');
-            $table->string('last_name');
-            $table->string('email');
-            $table->string('mobile_number');
-            $table->string('address');
-            $table->string('city');
-            $table->string('zip');
+            $table->increments('shipping_id');
+            $table->string('shipping_first_name');
+            $table->string('shipping_last_name');
+            $table->string('shipping_email');
+            $table->string('shipping_mobile_number');
+            $table->string('shipping_address');
+            $table->string('shipping_city');
+            $table->string('shipping_zip');
             $table->timestamps();
         });
     }
