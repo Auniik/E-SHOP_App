@@ -35,6 +35,9 @@ class CheckoutController extends Controller
         return Redirect::to('/payment');
     }
 
+    public function payment(){
+        return view('pages.payment');
+    }
     
 
 }

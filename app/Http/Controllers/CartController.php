@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use Cart;
 use Redirect;
+use Session;
+session_start();
 
 class CartController extends Controller
 {
@@ -56,6 +58,9 @@ class CartController extends Controller
         $data['price']=$product_info->product_price;
         $data['options']['image']=$product_info->product_image;
         Cart::instance('wishlist')->add($data);
+        // $customer_id=Session::get('customer_id');
+        // $wishlist=Cart::instance('wishlist')->store('wishlist');
+        
         return Redirect::to('/');
         
     }

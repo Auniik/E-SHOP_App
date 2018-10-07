@@ -22,11 +22,12 @@ Route::get('/delete-wishlist/{rowId}','CartController@delete_to_wishlist');
 Route::get('/checkout','CheckoutController@checkout');
 Route::get('/login-check','CheckoutController@login_check');
 Route::post('/save-shipping', 'CheckoutController@save_shipping');
+Route::get('/payment', 'CheckoutController@payment');
 
 //Login Session
 Route::post('/customer-registration','CustomerController@customer_registration');
 Route::get('/customer-logout', 'CustomerController@customer_logout');
-Route::post('/customer-login', 'CustomerController@customfr_login');
+Route::post('/customer-login', 'CustomerController@customer_login');
 
 
 //Payment managements

@@ -96,7 +96,17 @@
                                 <li><a href="{{'/show-wishlist'}}"><i class="fa fa-star"></i> Wishlist</a></li>
 
                                 @if($customer_id != null)
+                                    @if(Cart::instance('default')->count()==0)
                                     <li><a href="{{URL::to('/checkout')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                        @php
+                                            Session::put('cart_check','To checkout at least add a product to cart.');
+                                        @endphp
+                                    @else
+                                    <li><a href="{{URL::to('/checkout')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                        @php
+                                            Session::put('cart_check',null);
+                                        @endphp
+                                    @endif
                                 @else
                                     <li><a href="{{URL::to('/login-check')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                 @endif
