@@ -10,13 +10,28 @@ use Cart;
 session_start();
 class CheckoutController extends Controller
 {
+
     public function login_check(){
-    	return view('pages.login');
+        $customer_id=Session::get('customer_id');
+        if ($customer_id!=null) {
+            return redirect::to('/');
+        }
+        else{
+            return view('pages.login');
+        }
+    	
     }
 
     
     public function checkout(){
-    	return view('pages.checkout');
+        $customer_id=Session::get('customer_id');
+        if ($customer_id!=null) {
+            return view('pages.checkout');
+        }
+        else{
+            return view('pages.errorurl');
+        }
+    	
     }
 
     public function save_shipping(Request $request){
@@ -36,7 +51,21 @@ class CheckoutController extends Controller
     }
 
     public function payment(){
-        return view('pages.payment');
+        $customer_id=Session::get('customer_id');
+        $shipping_id=Session::get('shipping_id');
+        if ($customer_id!=null) {
+            if (Cart::instance('default')->count()==0 || $shipping_id==null) {
+                Session::put('check_payment', 'Add some product to cart to pay!');
+                return Redirect::to('/');
+            }
+            else{
+                return view('pages.payment');                
+            }
+        }
+        else{
+            return view('pages.errorurl');
+        }
+        
     }
     
 

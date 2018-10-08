@@ -5,18 +5,14 @@
 	<?php
 		$cart_check=Session::get('cart_check');
 		if ($cart_check) {
-			echo "<div class='alert alert-danger'>
-						<button type='button' class='close' data-dismiss='alert'>×</button>
-						<strong>$cart_check </strong> </div>";
-				Session::put('cart_check',null);
 		
 	?>
 
 <section id="cart_items">
 	<div class="container">
 		<div class="breadcrumbs">
-			<ol class="breadcrumb">
-			  <li><a href="#">Home</a></li>
+			<ol class="breadcrumb" style="margin-bottom:0px;">
+			  <li><a href="{{URL::to('/')}}">Home</a></li>
 			  <li class="active">Check out</li>
 			</ol>
 		</div><!--/breadcrums-->
@@ -25,6 +21,9 @@
 		<div class="register-req">
 			<p>Please At least add one product to cart to check out.</p>
 		</div><!--/register-req-->
+		<br>
+		<br>
+		
 
 		
 
@@ -42,7 +41,7 @@
 	<div class="container">
 		<div class="breadcrumbs">
 			<ol class="breadcrumb">
-			  <li><a href="#">Home</a></li>
+			  <li><a href="{{URL::to('/')}}">Home</a></li>
 			  <li class="active">Check out</li>
 			</ol>
 		</div><!--/breadcrums-->

@@ -1,5 +1,15 @@
 @extends('layout')
 @section('slider')
+    <?php
+    $check_payment=Session::get('check_payment');
+    if ($check_payment) {
+         echo "<div class='container alert alert-warning'>
+                        <button type='button' class='close' data-dismiss='alert'>×</button>
+                        <strong>$check_payment </strong> </div>";
+         Session::put('check_payment', null);
+    }
+   
+    ?>
     @include('slider')
 @endsection
 
@@ -7,7 +17,7 @@
     @include('aside')
 @endsection
 @section('content')
-    
+
     <h2 class="title text-center">Features Items</h2>
     @foreach($published_product as $v_published_product)
     <div class="col-sm-4">

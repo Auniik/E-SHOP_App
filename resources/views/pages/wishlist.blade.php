@@ -4,7 +4,7 @@
 	<div class="container col-md-12">
 		<div class="breadcrumbs">
 			<ol class="breadcrumb">
-			  <li><a href="#">Home</a></li>
+			  <li><a href="{{URL::to('/')}}">Home</a></li>
 			  <li class="active">Wishlist</li>
 			</ol>
 		</div>

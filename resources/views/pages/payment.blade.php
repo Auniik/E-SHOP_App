@@ -4,8 +4,8 @@
 	<div class="container col-md-12">
 		<div class="breadcrumbs">
 			<ol class="breadcrumb">
-			  <li><a href="#">Home</a></li>
-			  <li class="active">Shopping Cart</li>
+			  <li><a href="{{URL::to('/')}}">Home</a></li>
+			  <li class="active">Payment</li>
 			</ol>
 		</div>
 		<div class="table-responsive cart_info">
