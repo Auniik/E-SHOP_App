@@ -67,6 +67,11 @@ class CheckoutController extends Controller
         }
         
     }
+
+    public function order_place(Request $request){
+        $payment_gateway=$request->payment_gateway;
+        echo $payment_gateway;
+    }
     
 
 }

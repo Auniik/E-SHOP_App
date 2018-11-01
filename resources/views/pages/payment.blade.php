@@ -73,6 +73,37 @@
 					@endforeach
 				</tbody>
 			</table>
+			<div class="step-one">
+				<h2 class="heading">Payment Method</h2>
+			</div>
+
+			<div class="checkout-options container">
+				<h3>Choose your Best Payment Method</h3>
+				<p>All transections are secure and encrypted</p>
+				<form action="{{URL::to('/order-place')}}" method="post">
+					{{csrf_field()}}
+					<ul class="nav">
+					<li>
+						<label><input type="radio" name="payment_gateway" value="Cash On Delivery"> Cash On Delivery</label>
+					</li>
+					<li>
+						<label><input type="radio" name="payment_gateway" value="Bkash"> Bkash</label>
+					</li>
+					<li>
+						<label><input type="radio" name="payment_gateway" value="VISA"> VISA</label>
+					</li>
+					<li>
+						<label><input type="radio" name="payment_gateway" value="Mastercard"> Mastercard</label>
+					</li>
+				</ul>
+				<br>
+					<div class="row container">
+						<input type="submit" class="col-xs-6 btn btn-warning" style="color:white; height:45px; background: #FE980F" name="order_place" value="ORDER">
+					</div>
+				</form>
+				
+				<br>
+			</div>
 		</div>
 	</div>
 </section> <!--/#cart_items-->

@@ -23,6 +23,7 @@ Route::get('/checkout','CheckoutController@checkout');
 Route::get('/login-check','CheckoutController@login_check');
 Route::post('/save-shipping', 'CheckoutController@save_shipping');
 Route::get('/payment', 'CheckoutController@payment');
+Route::post('/order-place', 'CheckoutController@order_place');
 
 //Login Session
 Route::post('/customer-registration','CustomerController@customer_registration');
